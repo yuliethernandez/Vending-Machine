@@ -1,13 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec <<< FAILURE!
-com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest.testLoadProductsFromFile()  Time elapsed: 0.067 sec  <<< FAILURE!
-org.opentest4j.AssertionFailedError: File should match expected. ==> expected: <[Product{name=Chex Mix, cost=0.75, numberItemsInventory=16}, Product{name=Rice Krispy, cost=1.11, numberItemsInventory=8}, Product{name=Cheetos, cost=1.50, numberItemsInventory=4}]> but was: <[Product{name=Chex Mix, cost=0.75, numberItemsInventory=16}, Product{name=Dr Pepper, cost=2.00, numberItemsInventory=3}, Product{name=Lemonade, cost=1.23, numberItemsInventory=4}, Product{name=Fanta, cost=0.85, numberItemsInventory=12}, Product{name=Gatorade, cost=2.22, numberItemsInventory=6}, Product{name=Cheetos, cost=1.50, numberItemsInventory=4}, Product{name=Rice Krispy, cost=1.11, numberItemsInventory=8}]>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1153)
-	at com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest.testLoadProductsFromFile(ClassVendingMachineDaoImplTest.java:93)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec

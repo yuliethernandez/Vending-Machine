@@ -157,29 +157,5 @@ public class ClassVendingMachineDaoImpl implements ClassVendingMachineDao{
         writeLibrary();
         return product;
     }
-    // this method is identical to loadRoster() except public and return type changed
-    // and added to the interface
-    /*@Override
-    public Map<String, Product> loadProductsFromFile() throws ClassVendingMachinePersistenceException {
-        Scanner scanner;
-        try {
-            scanner = new Scanner(
-                    new BufferedReader(
-                            new FileReader(VENDING_MACHINE_FILE)));
-        } catch (FileNotFoundException e) {
-            throw new ClassVendingMachinePersistenceException(
-                    "-_- Could not load roster data into memory.", e);
-        }
-        String currentLine;
-        Product currentProduct;
-        while (scanner.hasNextLine()) {
-            currentLine = scanner.nextLine();
-            currentProduct = unmarshallProduct(currentLine);
-            listProducts.put(currentProduct.getId(), currentProduct);
-        }
-        scanner.close();
-
-        return listProducts; // new line of code
-    }*/
-    
+   
 }

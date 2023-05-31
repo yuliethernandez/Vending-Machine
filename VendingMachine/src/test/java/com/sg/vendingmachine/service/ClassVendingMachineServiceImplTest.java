@@ -66,5 +66,19 @@ public class ClassVendingMachineServiceImplTest {
         Product shouldBeNull = service.sellProduct(testProduct.getId(), userMoney);
         assertNull(shouldBeNull, "Cannot sell a product with null id.");
     }
-   
+   @Test
+    public void testAddProduct() throws Exception {
+        // ARRANGE
+        Product testProduct;
+        BigDecimal productPrice = new BigDecimal("1.35");
+        testProduct = new Product("001", "KitKat", productPrice, 10);
+
+        Product addedProduct = testDao.addProduct(testProduct);
+
+        // ACT & ASSERT
+        assertEquals( 1, service.getListProducts().size(),
+                "Should only have one product.");
+        assertTrue( service.getListProducts().contains(testProduct),
+                "The one product should be KitKat.");
+    }
 }

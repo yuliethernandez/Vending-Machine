@@ -4,7 +4,6 @@ import com.sg.vendingmachine.dao.ClassVendingMachineDao;
 import com.sg.vendingmachine.dto.Product;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class VendingMachineDaoStubImpl implements ClassVendingMachineDao{
     private Product onlyProduct;
@@ -55,13 +54,12 @@ public class VendingMachineDaoStubImpl implements ClassVendingMachineDao{
     }
 
     @Override
-    public Product addProduct(Product product) throws Exception {
-        return product;
+    public Product addProduct(Product product) {
+        if (product.getId().equals(onlyProduct.getId())) {
+            return onlyProduct;
+        } else {
+            return null;
+        }
     }
-
-    /*@Override
-    public Map<String, Product> loadProductsFromFile() throws ClassVendingMachinePersistenceException {
-        return tes;
-    }*/
 
 }
