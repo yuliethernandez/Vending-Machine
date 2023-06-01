@@ -9,6 +9,7 @@ import com.sg.vendingmachine.service.ClassNoItemInventoryException;
 import com.sg.vendingmachine.service.ClassVendingMachineServiceImpl;
 import com.sg.vendingmachine.ui.ClassVendingMachineUserView;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -28,8 +29,9 @@ public class VendingMachineController {
             ArrayList<Product> listItem = service.getListProducts();            
             io.showListProducts(listItem);
             
-            if(moneyUser.compareTo(BigDecimal.ZERO) == 0){//moneyUser == 0
-                moneyUser = new BigDecimal(io.getMoneyUser()); 
+            if(moneyUser.compareTo(BigDecimal.ZERO) == 0){
+                moneyUser = new BigDecimal(io.getMoneyUser());
+                moneyUser = moneyUser.setScale(2, RoundingMode.HALF_UP);
                 try{
                     service.isMoneyUserValid(moneyUser);
                 }catch(ClassInsufficientFundsException e){
@@ -44,7 +46,9 @@ public class VendingMachineController {
             }
             else{
                 try{
-                    service.sellProduct(option, moneyUser);
+                    Product test = service.sellProduct(option, moneyUser);
+                    if (test == null)
+                        throw new ClassNoItemInventoryException("The product doesn't have any item in the inventory.");
                     Map<String, Integer> changeUser = service.getChangeUser();
                     moneyUser=BigDecimal.ZERO;
                     io.productSoldSuccessfully();

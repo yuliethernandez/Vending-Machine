@@ -27,7 +27,7 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
     
     public void isMoneyUserValid(BigDecimal money) throws ClassInsufficientFundsException{
         if(money.compareTo(BigDecimal.ZERO) == 0){
-            throw new ClassInsufficientFundsException("Insufficient Funds.");
+            throw new ClassInsufficientFundsException("Insufficient Funds");
         }
     }
 
@@ -38,7 +38,9 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
         //Map<String, Integer> changeUser;
         try{
             prod = dao.getProductByID(id);
-            if (prod != null) {
+//            if (prod.getNumberItemsInventory() == 0)
+//                throw new ClassNoItemInventoryException("");
+            if (prod != null && prod.getNumberItemsInventory() != 0) {
                 isEnoughtMoneyUser(moneyUser, prod.getPrice());    
                 //Check if the product exist in the inventory
                 soldProduct = dao.checkProductExistInventory(id);   
@@ -49,7 +51,7 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
                 //get the change in pennies
                 int pennies = this.getChangeUserPennies(moneyUser, prod.getPrice());
                 changeUser = change.getChangeUser(pennies);
-            }else{
+            } else{
                 return null;
             }            
         }

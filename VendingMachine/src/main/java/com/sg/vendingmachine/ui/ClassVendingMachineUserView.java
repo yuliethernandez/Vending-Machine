@@ -21,7 +21,9 @@ public class ClassVendingMachineUserView {
         this.getListItems(listItem);
     }
     public String getMenuOption() throws VendingMachineDaoException{
-        return io.readString("\nIf you wanna exit, please just press cero. \nType the ID of the product you wish purchase: ");
+        Integer msg = io.readInt("\nIf you wanna exit, please just press cero. \nType the ID of the product you wish purchase: ");
+        return msg.toString();
+//        return io.readString("\nIf you wanna exit, please just press cero. \nType the ID of the product you wish purchase: ");
     }
     
     private void getListItems(ArrayList<Product> listItem) throws VendingMachineDaoException{
@@ -33,20 +35,7 @@ public class ClassVendingMachineUserView {
         io.print(head);
         listItem.stream().filter((p) -> p.getNumberItemsInventory() > 0)
                 .forEach((p) -> System.out.printf("%10s | %20s | %20s%n", p.getId(), p.getName(), p.getPrice()));
-    }
-        /*io.print("\n*** Displaying Information of Products***");
-        String head = String.format("%10s | %20s | %20s" , 
-                "ID Product",
-                "Product",
-                "Price");
-        io.print(head);
-        for(Product p: listItem){
-            String dataProducts = String.format("%10s | %20s | %20s" , 
-                p.getId(),
-                p.getName(),
-                p.getPrice());
-            io.print(dataProducts);
-        } */       
+    }      
     
     public double getMoneyUser() throws VendingMachineDaoException{
        String output = "Please enter your amount of money: ";

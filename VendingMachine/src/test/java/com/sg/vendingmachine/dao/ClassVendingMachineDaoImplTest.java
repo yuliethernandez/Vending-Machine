@@ -26,11 +26,11 @@ public class ClassVendingMachineDaoImplTest {
     public void setUp() throws Exception {
         String testFile = "testProducts.txt";
         // Use the FileWriter to quickly blank the file
-        new FileWriter(testFile, true);
+        new FileWriter(testFile);
         testDao = new ClassVendingMachineDaoImpl(testFile);
     }
     
-    @Test // method by Michaela
+    @Test 
     @DisplayName("Test get list products")
     public void testGetListProducts() throws Exception {
         // create sample data and load it into the file
@@ -75,7 +75,7 @@ public class ClassVendingMachineDaoImplTest {
         testDao.addProduct(p10);
     }
     
-    @Test // method by Michaela
+    @Test 
     @DisplayName("Test add get product")
     public void testAddGetProduct() throws Exception {
 
@@ -92,9 +92,7 @@ public class ClassVendingMachineDaoImplTest {
         assertEquals(expectedResult.getName(), result.getName(), "Name should be equal");
         assertEquals(expectedResult.getPrice(), result.getPrice(), "Price should be equal");
         assertEquals(expectedResult.getNumberItemsInventory(), result.getNumberItemsInventory(), "Inventory should be equal");
-        
-        
-        
+ 
     }
 
     

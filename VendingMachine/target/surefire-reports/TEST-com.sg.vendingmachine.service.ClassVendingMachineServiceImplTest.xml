@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" time="0.065" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" time="0.023" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.19+7"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-11.0.19.7-hotspot\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\nelso\Downloads\Proyectos netbeans\VendinMachine"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Repo GitHub\GitHub Classroom\Shyrin REPO\Vending Machine\DI003\VendingMachineProject\VendinMachine"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="test" value="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\nelso\Downloads\Proyectos netbeans\VendinMachine"/>
+    <property name="user.dir" value="D:\Repo GitHub\GitHub Classroom\Shyrin REPO\Vending Machine\DI003\VendingMachineProject\VendinMachine"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="11.0.19+7"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
@@ -65,8 +65,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testAddSellProducts" time="0.065"/>
-  <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testSellInvalidIdProducts" time="0"/>
+  <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testSellInvalidIdProducts" time="0.003"/>
+  <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testAddSellProducts" time="0.02"/>
   <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testGetAllProducts" time="0"/>
   <testcase classname="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest" name="com.sg.vendingmachine.service.ClassVendingMachineServiceImplTest.testAddProduct" time="0"/>
 </testsuite>
