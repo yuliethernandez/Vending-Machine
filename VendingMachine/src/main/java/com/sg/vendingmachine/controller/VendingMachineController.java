@@ -1,7 +1,6 @@
 
 package com.sg.vendingmachine.controller;
 
-import com.sg.vendingmachine.service.ClassVendingMachineInventoryException;
 import com.sg.vendingmachine.service.ClassVendingMachinePersistenceException;
 import com.sg.vendingmachine.dao.VendingMachineDaoException;
 import com.sg.vendingmachine.dto.Product;
@@ -22,7 +21,7 @@ public class VendingMachineController {
         this.service = service;
     }
     
-    public void run() throws VendingMachineDaoException, ClassVendingMachinePersistenceException, ClassInsufficientFundsException, ClassNoItemInventoryException, ClassNotFoundException, ClassVendingMachineInventoryException{
+    public void run() throws VendingMachineDaoException, ClassVendingMachinePersistenceException, ClassInsufficientFundsException, ClassNoItemInventoryException, ClassNotFoundException{
         io.bannerApp();
         BigDecimal moneyUser = BigDecimal.ZERO;
         while(true){

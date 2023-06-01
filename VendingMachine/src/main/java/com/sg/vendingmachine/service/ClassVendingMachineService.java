@@ -9,6 +9,6 @@ public interface ClassVendingMachineService {
     
     ArrayList<Product> getListProducts() throws ClassVendingMachinePersistenceException, ClassNoItemInventoryException;
     
-    Product sellProduct(String id, BigDecimal moneyUser) throws ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException, ClassVendingMachineInventoryException;
+    Product sellProduct(String id, BigDecimal moneyUser) throws ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException, ClassVendingMachinePersistenceException;
     
 }

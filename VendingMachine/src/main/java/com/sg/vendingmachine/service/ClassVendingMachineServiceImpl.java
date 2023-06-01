@@ -32,7 +32,7 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
     }
 
     @Override
-    public Product sellProduct(String id, BigDecimal moneyUser) throws ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException {
+    public Product sellProduct(String id, BigDecimal moneyUser) throws ClassVendingMachinePersistenceException, ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException {
         Product prod;
         Product soldProduct;
         //Map<String, Integer> changeUser;
@@ -60,10 +60,10 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
             throw new ClassInsufficientFundsException("Insufficient Funds.");
         }
         catch(ClassVendingMachinePersistenceException e){
-            throw new ClassInsufficientFundsException("-_- Could not load the product data into memory.", e);
+            throw new ClassVendingMachinePersistenceException("-_- Could not load the product data into memory.", e);
         }
         catch(ClassNoItemInventoryException e){
-            throw new ClassInsufficientFundsException("The product doesn't have any item in the inventory.");
+            throw new ClassNoItemInventoryException("The product doesn't have any item in the inventory.");
         }        
         return soldProduct;
     }
