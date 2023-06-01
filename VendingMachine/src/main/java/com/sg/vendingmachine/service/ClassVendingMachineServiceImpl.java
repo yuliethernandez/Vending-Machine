@@ -25,14 +25,14 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
         return dao.getListProducts();
     }
     
-    public void isMoneyUserValid(double money) throws ClassInsufficientFundsException{
-        if(money == 0){
+    public void isMoneyUserValid(BigDecimal money) throws ClassInsufficientFundsException{
+        if(money.compareTo(BigDecimal.ZERO) == 0){
             throw new ClassInsufficientFundsException("Insufficient Funds.");
         }
     }
 
     @Override
-    public Product sellProduct(String id, BigDecimal moneyUser) throws ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException, ClassVendingMachineInventoryException {
+    public Product sellProduct(String id, BigDecimal moneyUser) throws ClassNoItemInventoryException, ClassInsufficientFundsException, ClassNotFoundException {
         Product prod;
         Product soldProduct;
         //Map<String, Integer> changeUser;
@@ -51,10 +51,7 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
                 changeUser = change.getChangeUser(pennies);
             }else{
                 return null;
-            }
-            
-            //
-            
+            }            
         }
         catch(ClassNotFoundException e){
             throw new ClassNotFoundException("The product with that ID doesn't exit.");
@@ -65,10 +62,9 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
         catch(ClassVendingMachinePersistenceException e){
             throw new ClassInsufficientFundsException("-_- Could not load the product data into memory.", e);
         }
-        catch(ClassVendingMachineInventoryException e){
+        catch(ClassNoItemInventoryException e){
             throw new ClassInsufficientFundsException("The product doesn't have any item in the inventory.");
         }        
-        //return changeUser;
         return soldProduct;
     }
 
@@ -90,9 +86,6 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
         if(money.compareTo(price)== -1){
             throw new ClassInsufficientFundsException("");
         }
-    }
-
-    
-   
+    } 
     
 }

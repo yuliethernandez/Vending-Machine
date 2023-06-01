@@ -55,6 +55,24 @@ public class ClassVendingMachineDaoImplTest {
         // get a list of the actual products
         ArrayList<Product> result = testDao.getListProducts();
         assertEquals(result, expectedResult, "Checking getListProducts");
+        
+        // Check that the inventory updates when an item is sold
+        // Sell an item of Dr Pepper
+        testDao.sellItem(p1);
+        //Get updated list of products
+        ArrayList<Product> updatedList = testDao.getListProducts();
+        // Assert updated inventory
+        assertEquals(2, updatedList.get(0).getNumberItemsInventory(), "Checking if inventory updated with one Dr. Pepper item sold");
+
+        // Sell "Gatorade" 2 times
+        testDao.sellItem(p4);
+        testDao.sellItem(p4);
+
+        ArrayList<Product> newUpdatedList = testDao.getListProducts();
+        assertEquals(4, newUpdatedList.get(3).getNumberItemsInventory(), "Checking new updated inventory with 2 gatorade items sold");
+        
+        Product p10 = new Product("10", "corn", new BigDecimal(170), 10);
+        testDao.addProduct(p10);
     }
     
     @Test // method by Michaela
@@ -74,15 +92,10 @@ public class ClassVendingMachineDaoImplTest {
         assertEquals(expectedResult.getName(), result.getName(), "Name should be equal");
         assertEquals(expectedResult.getPrice(), result.getPrice(), "Price should be equal");
         assertEquals(expectedResult.getNumberItemsInventory(), result.getNumberItemsInventory(), "Inventory should be equal");
+        
+        
+        
     }
-    @Test
-    public void testUpdateProduct() throws Exception {
-        Product p10 = new Product("10", "corn", new BigDecimal(170), 10);
-        testDao.addProduct(p10);
 
-        Product result = testDao.sellItem(p10);
-        int expectedResult = p10.getNumberItemsInventory() - 1;
-        assertEquals(expectedResult, result.getNumberItemsInventory(), "Corn inventory should be" + expectedResult);
-    }
     
 }

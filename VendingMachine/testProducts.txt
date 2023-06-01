@@ -1,5 +1,6 @@
--1::Dr Pepper::2.00::3
+-1::Dr Pepper::2.00::2
 -2::Lemonade::1.23::4
 -3::Fanta::0.85::12
--4::Gatorade::2.22::6
+-4::Gatorade::2.22::4
 3456789::Gummies::0.99::4
+10::corn::170::10

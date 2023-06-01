@@ -24,13 +24,13 @@ public class VendingMachineController {
     
     public void run() throws VendingMachineDaoException, ClassVendingMachinePersistenceException, ClassInsufficientFundsException, ClassNoItemInventoryException, ClassNotFoundException, ClassVendingMachineInventoryException{
         io.bannerApp();
-        double moneyUser = 0;
+        BigDecimal moneyUser = BigDecimal.ZERO;
         while(true){
             ArrayList<Product> listItem = service.getListProducts();            
             io.showListProducts(listItem);
             
-            if(moneyUser == 0){
-                moneyUser = io.getMoneyUser(); 
+            if(moneyUser.compareTo(BigDecimal.ZERO) == 0){//moneyUser == 0
+                moneyUser = new BigDecimal(io.getMoneyUser()); 
                 try{
                     service.isMoneyUserValid(moneyUser);
                 }catch(ClassInsufficientFundsException e){
@@ -42,16 +42,19 @@ public class VendingMachineController {
             if (Integer.parseInt(option)==0){
                 io.programEnding();
                 System.exit(0);                
-            }else{
+            }
+            else{
                 try{
-                    service.sellProduct(option, new BigDecimal(moneyUser));
+                    service.sellProduct(option, moneyUser);
                     Map<String, Integer> changeUser = service.getChangeUser();
-                    moneyUser=0;
+                    moneyUser=BigDecimal.ZERO;
                     io.productSoldSuccessfully();
                     io.outputChangeUser(changeUser);
-                }catch(ClassNoItemInventoryException | ClassNotFoundException  e){
+                }
+                catch(ClassNoItemInventoryException | ClassNotFoundException  e){
                     io.displayErrorMessage(e.getMessage());
-                }catch(ClassInsufficientFundsException e){
+                }
+                catch(ClassInsufficientFundsException e){
                     io.displayErrorMessage(e.getMessage() + ", you only count with $" + moneyUser + ". ");
                 }
                 

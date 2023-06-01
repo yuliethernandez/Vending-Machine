@@ -1,9 +1,9 @@
 
 package com.sg.vendingmachine.dao;
 
-import com.sg.vendingmachine.service.ClassVendingMachineInventoryException;
 import com.sg.vendingmachine.service.ClassVendingMachinePersistenceException;
 import com.sg.vendingmachine.dto.Product;
+import com.sg.vendingmachine.service.ClassNoItemInventoryException;
 import com.sg.vendingmachine.ui.UserIO;
 import com.sg.vendingmachine.ui.UserIOImplementation;
 import java.io.BufferedReader;
@@ -42,20 +42,11 @@ public class ClassVendingMachineDaoImpl implements ClassVendingMachineDao{
     
     @Override
     public ArrayList<Product> getListProducts() throws ClassVendingMachinePersistenceException {
-        /*loadLibrary();
-        ArrayList<Product> listProductsInventory = new ArrayList<Product>();
-        Collection<Product> values = listProducts.values();
-        for(Product p: values){
-            if(p.getNumberItemsInventory()>0){
-                listProductsInventory.add(p);
-            }
-        }
-        return listProductsInventory;*/
         loadLibrary();
         //-listProducts.values() retrieves a Collection of all the Product objects stored in the listProducts map.
         return listProducts.values().stream()
                 //-filters the stream, keeping only the Product objects where the numberItemsInventory is greater than 0.
-                .filter(p -> p.getNumberItemsInventory() > 0)
+                .filter(p -> p.getNumberItemsInventory() >= 0)
                 //-collects the filtered Product objects into an ArrayList using the Collectors.toCollection method.
                 .collect(Collectors.toCollection(ArrayList::new));
     }
@@ -142,10 +133,10 @@ public class ClassVendingMachineDaoImpl implements ClassVendingMachineDao{
     }
 
     @Override
-    public Product checkProductExistInventory(String id) throws ClassVendingMachineInventoryException{
+    public Product checkProductExistInventory(String id) throws ClassNoItemInventoryException{
         Product myProduct = new Product();
         if(listProducts.get(id).getNumberItemsInventory()== 0){
-            throw new ClassVendingMachineInventoryException("");
+            throw new ClassNoItemInventoryException("");
         }
         return myProduct;
         
