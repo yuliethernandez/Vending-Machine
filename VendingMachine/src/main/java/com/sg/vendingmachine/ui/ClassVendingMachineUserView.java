@@ -9,7 +9,7 @@ import java.util.Map;
 public class ClassVendingMachineUserView {
     private UserIO io;
 
-    public ClassVendingMachineUserView(UserIO io) {
+    public ClassVendingMachineUserView(UserIOImplementation io) {
         this.io = io;
     }
     

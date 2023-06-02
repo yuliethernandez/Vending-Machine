@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.165 sec <<< FAILURE!
-com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest.testGetListProducts()  Time elapsed: 0.064 sec  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec <<< FAILURE!
+com.sg.vendingmachine.dao.ClassVendingMachineDaoImplTest.testGetListProducts()  Time elapsed: 0.05 sec  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Checking getListProducts ==> expected: <[Product{name=Dr Pepper, cost=2.00, numberItemsInventory=3}, Product{name=Lemonade, cost=1.23, numberItemsInventory=4}, Product{name=Fanta, cost=0.85, numberItemsInventory=12}, Product{name=Gatorade, cost=2.22, numberItemsInventory=6}, Product{name=Gummies, cost=0.99, numberItemsInventory=4}]> but was: <[Product{name=Dr Pepper, cost=2.00, numberItemsInventory=3}, Product{name=Lemonade, cost=1.23, numberItemsInventory=4}, Product{name=Fanta, cost=0.85, numberItemsInventory=12}, Product{name=Gatorade, cost=2.22, numberItemsInventory=6}]>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)

@@ -59,13 +59,13 @@ public class ClassVendingMachineServiceImpl implements ClassVendingMachineServic
             throw new ClassNotFoundException("The product with that ID doesn't exit.");
         }
         catch(ClassInsufficientFundsException e){
-            throw new ClassInsufficientFundsException("Insufficient Funds.");
+            throw new ClassInsufficientFundsException("Insufficient Funds");
         }
         catch(ClassVendingMachinePersistenceException e){
             throw new ClassVendingMachinePersistenceException("-_- Could not load the product data into memory.", e);
         }
         catch(ClassNoItemInventoryException e){
-            throw new ClassNoItemInventoryException("The product doesn't have any item in the inventory.");
+            throw new ClassNoItemInventoryException("The product doesn't have any item in the inventory");
         }        
         return soldProduct;
     }

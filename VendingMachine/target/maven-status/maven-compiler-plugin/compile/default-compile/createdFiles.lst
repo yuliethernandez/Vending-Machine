@@ -1,13 +1,10 @@
 com\sg\vendingmachine\App.class
 com\sg\vendingmachine\dao\ClassVendingMachineAuditDaoFileImpl.class
-com\sg\vendingmachine\dao\ClassVendingMachineChange$COINS.class
 com\sg\vendingmachine\service\ClassVendingMachineService.class
 com\sg\vendingmachine\dao\VendingMachineDaoException.class
 com\sg\vendingmachine\dao\ClassVendingMachinePersistenceException.class
 com\sg\vendingmachine\ui\UserIOImplementation.class
-com\sg\vendingmachine\dao\ClassVendingMachineChange.class
 com\sg\vendingmachine\dao\ClassVendingMachineDaoImpl.class
-com\sg\vendingmachine\dao\ClassVendingMachineInventory.class
 com\sg\vendingmachine\ui\UserIO.class
 com\sg\vendingmachine\dao\ClassVendingMachineAuditDao.class
 com\sg\vendingmachine\ui\ClassVendingMachineUserView.class

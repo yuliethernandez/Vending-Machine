@@ -13,16 +13,25 @@ import com.sg.vendingmachine.dao.VendingMachineDaoException;
 import com.sg.vendingmachine.service.ClassInsufficientFundsException;
 import com.sg.vendingmachine.service.ClassNoItemInventoryException;
 import com.sg.vendingmachine.service.ClassVendingMachineServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
 
     public static void main(String[] args) throws VendingMachineDaoException, ClassVendingMachinePersistenceException, ClassInsufficientFundsException, ClassNoItemInventoryException, ClassNotFoundException {
-        UserIO myIo = new UserIOImplementation();
+        /*UserIO myIo = new UserIOImplementation();
         ClassVendingMachineUserView myView = new ClassVendingMachineUserView(myIo);
         ClassVendingMachineDao myDao = new ClassVendingMachineDaoImpl();
         ClassVendingMachineAuditDao myAuditDao = new ClassVendingMachineAuditDaoFileImpl();
         ClassVendingMachineServiceImpl myService = new ClassVendingMachineServiceImpl((ClassVendingMachineDaoImpl) myDao, myAuditDao);
         VendingMachineController controller = new VendingMachineController(myView, myService);
+        controller.run();*/
+        
+        ApplicationContext appContext
+                = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+
+        VendingMachineController controller = appContext.getBean("controller", VendingMachineController.class);
         controller.run();
+        
     }
 }
